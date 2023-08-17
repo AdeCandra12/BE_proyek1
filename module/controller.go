@@ -114,7 +114,7 @@ func InsertNilai(db *mongo.Database, col string, npm_ms model.Mahasiswa, presens
 
 // UPDATE DATA
 
-func UpdateMahasiswa(db *mongo.Database, col string, id primitive.ObjectID, nama_mahasiswa string, npm int, jurusan string, email string) (err error) {
+func UpdateMahasiswa(db *mongo.Database, col string, id primitive.ObjectID, nama_mahasiswa string, npm string, jurusan string, email string) (err error) {
 	filter := bson.M{"_id": id}
 	update := bson.M{
 		"$set": bson.M{
@@ -374,20 +374,6 @@ func GetNilaiFromID(_id primitive.ObjectID, db *mongo.Database, col string) (nl 
 
 // GET ALL FUNCTION
 
-func GetAllNilai(db *mongo.Database, col string) (data []model.Nilai) {
-	nilai := db.Collection(col)
-	filter := bson.M{}
-	cursor, err := nilai.Find(context.TODO(), filter)
-	if err != nil {
-		fmt.Println("GetAllNilai :", err)
-	}
-	err = cursor.All(context.TODO(), &data)
-	if err != nil {
-		fmt.Println(err)
-	}
-	return data
-}
-
 func GetAllMahasiswa(db *mongo.Database, col string) (data []model.Mahasiswa) {
 	mahasiswa := db.Collection(col)
 	filter := bson.M{}
@@ -436,6 +422,20 @@ func GetAllAbsensi(db *mongo.Database, col string) (data []model.Absensi) {
 	cursor, err := absensi.Find(context.TODO(), filter)
 	if err != nil {
 		fmt.Println("GetAllAbsensi :", err)
+	}
+	err = cursor.All(context.TODO(), &data)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return data
+}
+
+func GetAllNilai(db *mongo.Database, col string) (data []model.Nilai) {
+	nilai := db.Collection(col)
+	filter := bson.M{}
+	cursor, err := nilai.Find(context.TODO(), filter)
+	if err != nil {
+		fmt.Println("GetAllNilai :", err)
 	}
 	err = cursor.All(context.TODO(), &data)
 	if err != nil {
