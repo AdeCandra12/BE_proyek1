@@ -74,7 +74,7 @@ func TestInsertNilai(t *testing.T) {
 			Email:          "riarass23@gmail.com",
 		},
 		Tanggal: "29 januari 2023",
-		Checkin: "hadir",
+		Checkin: "tidak hadir",
 	}
 	nilai_akhir := "85"
 	grade := "AB"
