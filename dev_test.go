@@ -86,7 +86,7 @@ func TestInsertNilai(t *testing.T) {
 }
 
 func TestGetMahasiswaFromID(t *testing.T) {
-	id := "64a4e2e694cb7dd7f0d0f9f5"
+	id := "64dd85429061a4abcefa136e"
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		t.Fatalf("error converting id to ObjectID: %v", err)
@@ -99,7 +99,7 @@ func TestGetMahasiswaFromID(t *testing.T) {
 }
 
 func TestGetOrangTuaFromID(t *testing.T) {
-	id := "64134e6931b8ceb1ad63d3ad"
+	id := "64dd85a819ba21c07867c8e7"
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		t.Fatalf("error converting id to ObjectID: %v", err)
@@ -112,7 +112,7 @@ func TestGetOrangTuaFromID(t *testing.T) {
 }
 
 func TestGetMatakuliahFromID(t *testing.T) {
-	id := "64a4e2e994cb7dd7f0d0f9f7"
+	id := "64dd85449061a4abcefa1370"
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		t.Fatalf("error converting id to ObjectID: %v", err)
@@ -125,7 +125,7 @@ func TestGetMatakuliahFromID(t *testing.T) {
 }
 
 func TestGetAbsensiFromID(t *testing.T) {
-	id := "64a4e2ea94cb7dd7f0d0f9f8"
+	id := "64dd87c577430e6c6ccc3671"
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		t.Fatalf("error converting id to ObjectID: %v", err)
@@ -138,7 +138,7 @@ func TestGetAbsensiFromID(t *testing.T) {
 }
 
 func TestGetNilaiFromID(t *testing.T) {
-	id := "64a4e2ea94cb7dd7f0d0f9f9"
+	id := "64dd8cb4f6d9f1ef0f40fe5c"
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		t.Fatalf("error converting id to ObjectID: %v", err)
