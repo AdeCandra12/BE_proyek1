@@ -10,10 +10,10 @@ import (
 )
 
 func TestInsertMahasiswa(t *testing.T) {
-	nama_mhs := "ade candra"
-	npm := "1214012"
-	jurusan := "D4 teknik informatika"
-	email := "adecandra12@gamil.com"
+	nama_mhs := "kiki hermawan"
+	npm := "1214067"
+	jurusan := "S1 data sains"
+	email := "kikiman12@gmail.com"
 	insertedID, err := module.InsertMahasiswa(module.MongoConn, "mahasiswa", nama_mhs, npm, jurusan, email)
 	if err != nil {
 		t.Errorf("Error inserting data: %v", err)
@@ -22,9 +22,9 @@ func TestInsertMahasiswa(t *testing.T) {
 }
 
 func TestInsertOrangTua(t *testing.T) {
-	nama_ortu := "Stephen kurniawan"
-	phone_number := "081342565098"
-	email := "steph.kur12@gmail.com"
+	nama_ortu := "tuti jubaedah"
+	phone_number := "08190972398"
+	email := "tuti.jub92@gmail.com"
 	insertedID, err := module.InsertOrangTua(module.MongoConn, "orangtua", nama_ortu, phone_number, email)
 	if err != nil {
 		t.Errorf("Error inserting data: %v", err)
@@ -33,10 +33,10 @@ func TestInsertOrangTua(t *testing.T) {
 }
 
 func TestInsertMatakuliah(t *testing.T) {
-	nama_matkul := "proyek 1"
-	sks := "4"
-	dosen_pengampu := "rizki amiludin"
-	email := "amiludin12@gmail.com"
+	nama_matkul := "bahasa inggris"
+	sks := "2"
+	dosen_pengampu := "ria saraswati"
+	email := "riarass23@gmail.com"
 	insertedID, err := module.InsertMatakuliah(module.MongoConn, "matakuliah", nama_matkul, sks, dosen_pengampu, email)
 	if err != nil {
 		t.Errorf("Error inserting data: %v", err)
@@ -45,12 +45,12 @@ func TestInsertMatakuliah(t *testing.T) {
 }
 func TestInsertAbsensi(t *testing.T) {
 	nama_mk := model.Matakuliah{
-		Nama_matkul:    "proyek 1",
-		SKS:            "4",
-		Dosen_pengampu: "rizki amilidin",
-		Email:          "amiludin12@gmail.com",
+		Nama_matkul:    "bahasa inggris",
+		SKS:            "2",
+		Dosen_pengampu: "ria saraswati",
+		Email:          "riarass23@gmail.com",
 	}
-	tanggal := "12 februari 2023"
+	tanggal := "29 januari 2023"
 	checkin := "hadir"
 	insertedID, err := module.InsertAbsensi(module.MongoConn, "absensi", nama_mk, tanggal, checkin)
 	if err != nil {
@@ -61,24 +61,24 @@ func TestInsertAbsensi(t *testing.T) {
 
 func TestInsertNilai(t *testing.T) {
 	nama_ms := model.Mahasiswa{
-		Nama_mhs: "ade candra",
-		NPM:      "1214012",
-		Jurusan:  "D4 teknik informatika",
-		Email:    "adecandra12@gmail.com",
+		Nama_mhs: "asep sulaiman",
+		NPM:      "1214098",
+		Jurusan:  "S1 data sains",
+		Email:    "asepman12@gmail.com",
 	}
 	presensi := model.Absensi{
 		Nama_mk: model.Matakuliah{
-			Nama_matkul:    "proyek 1",
-			SKS:            "4",
-			Dosen_pengampu: "rizki amilidin",
-			Email:          "amiludin12@gmail.com",
+			Nama_matkul:    "bahasa inggris",
+			SKS:            "2",
+			Dosen_pengampu: "ria saraswati",
+			Email:          "riarass23@gmail.com",
 		},
-		Tanggal: "12 februari 2023",
+		Tanggal: "29 januari 2023",
 		Checkin: "hadir",
 	}
-	nilai_akhir := "90"
-	grade := "A"
-	insertedID, err := module.InsertNilai(module.MongoConn, "monitoring", nama_ms, presensi, nilai_akhir, grade)
+	nilai_akhir := "85"
+	grade := "AB"
+	insertedID, err := module.InsertNilai(module.MongoConn, "nilai", nama_ms, presensi, nilai_akhir, grade)
 	if err != nil {
 		t.Errorf("Error inserting data: %v", err)
 	}

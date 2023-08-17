@@ -431,9 +431,9 @@ func GetAllMatakuliah(db *mongo.Database, col string) (data []model.Matakuliah) 
 }
 
 func GetAllAbsensi(db *mongo.Database, col string) (data []model.Absensi) {
-	tema := db.Collection(col)
+	absensi := db.Collection(col)
 	filter := bson.M{}
-	cursor, err := tema.Find(context.TODO(), filter)
+	cursor, err := absensi.Find(context.TODO(), filter)
 	if err != nil {
 		fmt.Println("GetAllAbsensi :", err)
 	}
