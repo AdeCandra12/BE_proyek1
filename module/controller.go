@@ -51,9 +51,9 @@ func InsertMahasiswa(db *mongo.Database, col string, nama_mhs string, npm string
 	return insertedID, nil
 }
 
-func InsertOrangTua(db *mongo.Database, col string, nama_orangtua string, phone_number string, email string) (insertedID primitive.ObjectID, err error) {
+func InsertOrangTua(db *mongo.Database, col string, nama_ortu string, phone_number string, email string) (insertedID primitive.ObjectID, err error) {
 	orangtua := bson.M{
-		"nama_ortu":    nama_orangtua,
+		"nama_ortu":    nama_ortu,
 		"phone_number": phone_number,
 		"email":        email,
 	}
