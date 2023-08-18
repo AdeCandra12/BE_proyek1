@@ -178,11 +178,10 @@ func UpdateMatakuliah(db *mongo.Database, col string, id primitive.ObjectID, nam
 	}
 	return nil
 }
-func UpdateAbsensi(db *mongo.Database, col string, id primitive.ObjectID, npm_mhs model.Mahasiswa, nama_mk model.Matakuliah, tanggal string, checkin string) (err error) {
+func UpdateAbsensi(db *mongo.Database, col string, id primitive.ObjectID, nama_mk model.Matakuliah, tanggal string, checkin string) (err error) {
 	filter := bson.M{"_id": id}
 	update := bson.M{
 		"$set": bson.M{
-			"npm_mhs": npm_mhs,
 			"nama_mk": nama_mk,
 			"tanggal": tanggal,
 			"checkin": checkin,
@@ -200,12 +199,11 @@ func UpdateAbsensi(db *mongo.Database, col string, id primitive.ObjectID, npm_mh
 	return nil
 }
 
-func UpdateNilai(db *mongo.Database, col string, id primitive.ObjectID, npm_ms model.Mahasiswa, matkul model.Matakuliah, presensi model.Absensi, nilai_akhir string, grade string) (err error) {
+func UpdateNilai(db *mongo.Database, col string, id primitive.ObjectID, npm_ms model.Mahasiswa, presensi model.Absensi, nilai_akhir string, grade string) (err error) {
 	filter := bson.M{"_id": id}
 	update := bson.M{
 		"$set": bson.M{
 			"npm_ms":      npm_ms,
-			"matkul":      matkul,
 			"presensi":    presensi,
 			"nilai_akhir": nilai_akhir,
 			"grade":       grade,
