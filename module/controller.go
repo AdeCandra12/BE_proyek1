@@ -96,12 +96,13 @@ func InsertAbsensi(db *mongo.Database, col string, nama_mk model.Matakuliah, tan
 	return insertedID, nil
 }
 
-func InsertNilai(db *mongo.Database, col string, npm_ms model.Mahasiswa, presensi model.Absensi, nilai_akhir string, grade string) (insertedID primitive.ObjectID, err error) {
+func InsertNilai(db *mongo.Database, col string, npm_ms model.Mahasiswa, presensi model.Absensi, nilai_akhir string, grade string, tahun_ajaran string) (insertedID primitive.ObjectID, err error) {
 	nilai := bson.M{
-		"npm_ms":      npm_ms,
-		"presensi":    presensi,
-		"nilai_akhir": nilai_akhir,
-		"grade":       grade,
+		"npm_ms":       npm_ms,
+		"presensi":     presensi,
+		"nilai_akhir":  nilai_akhir,
+		"grade":        grade,
+		"tahun_ajaran": tahun_ajaran,
 	}
 	result, err := db.Collection(col).InsertOne(context.Background(), nilai)
 	if err != nil {
@@ -199,14 +200,15 @@ func UpdateAbsensi(db *mongo.Database, col string, id primitive.ObjectID, nama_m
 	return nil
 }
 
-func UpdateNilai(db *mongo.Database, col string, id primitive.ObjectID, npm_ms model.Mahasiswa, presensi model.Absensi, nilai_akhir string, grade string) (err error) {
+func UpdateNilai(db *mongo.Database, col string, id primitive.ObjectID, npm_ms model.Mahasiswa, presensi model.Absensi, nilai_akhir string, grade string, tahun_ajaran string) (err error) {
 	filter := bson.M{"_id": id}
 	update := bson.M{
 		"$set": bson.M{
-			"npm_ms":      npm_ms,
-			"presensi":    presensi,
-			"nilai_akhir": nilai_akhir,
-			"grade":       grade,
+			"npm_ms":       npm_ms,
+			"presensi":     presensi,
+			"nilai_akhir":  nilai_akhir,
+			"grade":        grade,
+			"tahun_ajaran": tahun_ajaran,
 		},
 	}
 	result, err := db.Collection(col).UpdateOne(context.Background(), filter, update)

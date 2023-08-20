@@ -78,7 +78,8 @@ func TestInsertNilai(t *testing.T) {
 	}
 	nilai_akhir := "75"
 	grade := "c"
-	insertedID, err := module.InsertNilai(module.MongoConn, "nilai", nama_ms, presensi, nilai_akhir, grade)
+	tahun_ajaran := "2022/2023"
+	insertedID, err := module.InsertNilai(module.MongoConn, "nilai", nama_ms, presensi, nilai_akhir, grade, tahun_ajaran)
 	if err != nil {
 		t.Errorf("Error inserting data: %v", err)
 	}

@@ -35,11 +35,12 @@ type Absensi struct {
 }
 
 type Nilai struct {
-	ID          primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
-	NPM_ms      Mahasiswa          `bson:"npm_ms,omitempty" json:"npm_ms,omitempty"`
-	Presensi    Absensi            `bson:"presensi,omitempty" json:"presensi,omitempty"`
-	Nilai_akhir string             `bson:"nilai_akhir,omitempty" json:"nilai_akhir,omitempty"`
-	Grade       string             `bson:"grade,omitempty" json:"grade,omitempty"`
+	ID           primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
+	NPM_ms       Mahasiswa          `bson:"npm_ms,omitempty" json:"npm_ms,omitempty"`
+	Presensi     Absensi            `bson:"presensi,omitempty" json:"presensi,omitempty"`
+	Nilai_akhir  string             `bson:"nilai_akhir,omitempty" json:"nilai_akhir,omitempty"`
+	Grade        string             `bson:"grade,omitempty" json:"grade,omitempty"`
+	Tahun_ajaran string             `bson:"tahun_ajaran,omitempty" json:"tahun_ajaran,omitempty"`
 }
 
 type User struct {
